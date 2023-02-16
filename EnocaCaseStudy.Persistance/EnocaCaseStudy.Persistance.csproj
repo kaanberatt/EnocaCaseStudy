@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\EnocaCaseStudy.Application\EnocaCaseStudy.Application.csproj" />
     <ProjectReference Include="..\EnocaCaseStudy.Domain\EnocaCaseStudy.Domain.csproj" />
   </ItemGroup>
 
