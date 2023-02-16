@@ -6,6 +6,7 @@ public sealed class Order : BaseEntity
 {
     public string CustomerName { get; set; }
     public DateTime OrderDate { get; set; }
+    public int CompanyId { get; set; }
     public int ProductId { get; set; }
     public Product Product{ get; set; }
 }

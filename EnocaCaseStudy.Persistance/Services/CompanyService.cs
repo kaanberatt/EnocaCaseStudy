@@ -37,6 +37,7 @@ public class CompanyService : ICompanyService
         var company = await _companyQueryRepository.GetById(request.Id);
         if (company != null)
         {
+            company.isConfirm = true; 
             company.OrderAllowStartTime = request.StartDate;
             company.OrderAllowFinishTime= request.FinishDate;
 
@@ -54,5 +55,8 @@ public class CompanyService : ICompanyService
         return _companyQueryRepository.GetAll();
     }
 
-    
+    public Task<Company> GetByIdAsync(int id)
+    {
+       return _companyQueryRepository.GetById(id);
+    }
 }
