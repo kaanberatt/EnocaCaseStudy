@@ -1,5 +1,6 @@
 ﻿using EnocaCaseStudy.Application.Services;
 using MediatR;
+using System.Net;
 
 namespace EnocaCaseStudy.Application.Features.Companies.Commands.CreateCompany
 {
@@ -15,7 +16,8 @@ namespace EnocaCaseStudy.Application.Features.Companies.Commands.CreateCompany
         public async Task<CreateCompanyCommandResponse> Handle(CreateCompanyCommand request, CancellationToken cancellationToken)
         {
             await _companyService.AddAsync(request);
-            return new();
+            
+            return new CreateCompanyCommandResponse();
         }
     }
 }

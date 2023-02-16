@@ -14,6 +14,6 @@ public class UpdateCompanyCommandHandler : IRequestHandler<UpdateCompanyCommand,
     public async Task<UpdateCompanyCommandResponse> Handle(UpdateCompanyCommand request, CancellationToken cancellationToken)
     {
         await _companyService.UpdateAsync(request);
-        return new();
+        return new UpdateCompanyCommandResponse();
     }
 }

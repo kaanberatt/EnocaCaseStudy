@@ -21,7 +21,7 @@ public class CompaniesController : ControllerBase
     public async Task<IActionResult> AddCompany(CreateCompanyCommand request)
     {
         var result = await _mediator.Send(request);
-        return Ok(result);
+        return Ok(result.Message);
     }
     [HttpPost]
     public IActionResult UpdateCompany(UpdateCompanyCommand request)

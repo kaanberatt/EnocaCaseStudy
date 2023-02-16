@@ -2,7 +2,9 @@
 
 public record CreateOrderCommandResponse
 {
-	public CreateOrderCommandResponse()
+    public string Message { get; set; }
+
+    public CreateOrderCommandResponse()
 	{
 		string Message = "Order is completed";
 	}

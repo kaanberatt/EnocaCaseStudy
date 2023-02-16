@@ -2,8 +2,10 @@
 
 public record CreateCompanyCommandResponse
 {
+	public string Message{ get; set; }
 	public CreateCompanyCommandResponse()
 	{
-		string Message = "Added Company";
+		Message = "Added Company";
+
 	}
 }
