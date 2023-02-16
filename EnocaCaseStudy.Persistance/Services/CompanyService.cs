@@ -23,9 +23,9 @@ public class CompanyService : ICompanyService
         var company = new Company()
         {
             CompanyName = request.CompanyName,
-            OrderAllowStartTime = request.StartDate,
+            OrderAllowStartTime =  request.StartDate,
             OrderAllowFinishTime = request.FinishDate,
-            isConfirm = false,
+            isConfirm = true,
             CreatedDate = DateTime.Now
         };
         await _companyCommandRepository.AddAsync(company);
@@ -37,9 +37,10 @@ public class CompanyService : ICompanyService
         var company = await _companyQueryRepository.GetById(request.Id);
         if (company != null)
         {
-            company.isConfirm = true; 
+            company.isConfirm = request.isConfirm; 
             company.OrderAllowStartTime = request.StartDate;
             company.OrderAllowFinishTime= request.FinishDate;
+            company.UpdatedDate = DateTime.Now;
 
             _companyCommandRepository.Update(company);
             await _unitOfWork.SaveChangesAsync();
@@ -55,8 +56,8 @@ public class CompanyService : ICompanyService
         return _companyQueryRepository.GetAll();
     }
 
-    public Task<Company> GetByIdAsync(int id)
+    public async Task<Company> GetByIdAsync(int id)
     {
-       return _companyQueryRepository.GetById(id);
+       return await _companyQueryRepository.GetById(id);
     }
 }

@@ -1,4 +1,9 @@
 ﻿using Autofac;
+using EnocaCaseStudy.Application.Features.Companies.Commands.CreateCompany;
+using EnocaCaseStudy.Application.Features.Companies.Commands.UpdateCompany;
+using EnocaCaseStudy.Application.Features.Companies.Queries.GetListAllCompanyQuery;
+using EnocaCaseStudy.Application.Features.Orders.Commands.CreateOrder;
+using EnocaCaseStudy.Application.Features.Products.Commands.CreateProduct;
 using EnocaCaseStudy.Application.Services;
 using EnocaCaseStudy.Domain;
 using EnocaCaseStudy.Domain.Entities;
@@ -9,7 +14,7 @@ using EnocaCaseStudy.Persistance.Repositories.CompanyRepositories;
 using EnocaCaseStudy.Persistance.Repositories.OrderRepositories;
 using EnocaCaseStudy.Persistance.Repositories.ProductRepositories;
 using EnocaCaseStudy.Persistance.Services;
-
+using MediatR;
 namespace EnocaCaseStudy.Persistance.Autofac;
 
 public class AutofacBusinessModule : Module
@@ -32,6 +37,21 @@ public class AutofacBusinessModule : Module
 
         builder.RegisterType<UnitOfWork>().As<IUnitOfWork>();
 
+        // Added MediaTR Services
+        #region Companies
+        builder.RegisterType<CreateCompanyCommandHandler>().As<IRequestHandler<CreateCompanyCommand, CreateCompanyCommandResponse>>();
 
+        builder.RegisterType<GetListAllQueryHandler>().As<IRequestHandler<GetListAllCompanyQuery, GetListAllCompanyQueryResponse>>();
+
+        builder.RegisterType<UpdateCompanyCommandHandler>().As<IRequestHandler<UpdateCompanyCommand, UpdateCompanyCommandResponse>>();
+        #endregion
+
+        #region Products
+        builder.RegisterType<CreateProductCommandHandler>().As<IRequestHandler<CreateProductCommand, CreateProductCommandResponse>>();
+        #endregion
+
+        #region Orders
+        builder.RegisterType<CreateOrderCommandHandler>().As<IRequestHandler<CreateOrderCommand, CreateOrderCommandResponse>>();
+        #endregion
     }
 }

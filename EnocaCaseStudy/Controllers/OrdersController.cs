@@ -21,7 +21,4 @@ public class OrdersController : ControllerBase
         var result = await _mediator.Send(request);
         return Ok();
     }
-  
-    
-
 }

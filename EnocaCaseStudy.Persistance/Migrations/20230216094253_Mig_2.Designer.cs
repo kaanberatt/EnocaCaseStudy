@@ -4,6 +4,7 @@ using EnocaCaseStudy.Persistance.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EnocaCaseStudy.Persistance.Migrations
 {
     [DbContext(typeof(EnocaCaseStudyContext))]
-    partial class EnocaCaseStudyContextModelSnapshot : ModelSnapshot
+    [Migration("20230216094253_Mig_2")]
+    partial class Mig_2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,11 +39,11 @@ namespace EnocaCaseStudy.Persistance.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("OrderAllowFinishTime")
-                        .HasColumnType("datetime2");
+                    b.Property<TimeSpan>("OrderAllowFinishTime")
+                        .HasColumnType("time");
 
-                    b.Property<DateTime>("OrderAllowStartTime")
-                        .HasColumnType("datetime2");
+                    b.Property<TimeSpan>("OrderAllowStartTime")
+                        .HasColumnType("time");
 
                     b.Property<DateTime?>("UpdatedDate")
                         .HasColumnType("datetime2");

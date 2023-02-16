@@ -2,7 +2,10 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using EnocaCaseStudy.Persistance.Autofac;
 using EnocaCaseStudy.Persistance.Context;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +16,10 @@ builder.Host.ConfigureContainer<ContainerBuilder>(builder => builder.RegisterMod
 
 builder.Services.AddDbContext<EnocaCaseStudyContext>(opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("MsSQL")));
 
-builder.Services.AddControllers();
+builder.Services.AddMediatR(typeof(Program));
+builder.Services.AddControllers().AddNewtonsoftJson(options =>
+        options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+    );
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

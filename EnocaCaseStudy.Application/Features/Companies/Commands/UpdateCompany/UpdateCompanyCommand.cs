@@ -3,5 +3,6 @@
 namespace EnocaCaseStudy.Application.Features.Companies.Commands.UpdateCompany;
 
 public record UpdateCompanyCommand(int Id,
-                                   TimeSpan StartDate,
-                                   TimeSpan FinishDate) : IRequest<UpdateCompanyCommandResponse>;
+                                   DateTime StartDate,
+                                   DateTime FinishDate,
+                                   bool isConfirm) : IRequest<UpdateCompanyCommandResponse>;

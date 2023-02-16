@@ -4,6 +4,7 @@ using EnocaCaseStudy.Persistance.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EnocaCaseStudy.Persistance.Migrations
 {
     [DbContext(typeof(EnocaCaseStudyContext))]
-    partial class EnocaCaseStudyContextModelSnapshot : ModelSnapshot
+    [Migration("20230216094835_Mig_3")]
+    partial class Mig_3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

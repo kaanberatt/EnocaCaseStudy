@@ -10,4 +10,12 @@
     <PackageReference Include="MediatR" Version="11.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EnocaCaseStudy.Domain\EnocaCaseStudy.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\Orders\Queries\" />
+  </ItemGroup>
+
 </Project>

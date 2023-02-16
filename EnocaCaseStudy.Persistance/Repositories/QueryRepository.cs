@@ -25,9 +25,9 @@ public class QueryRepository<T> : IQueryRepository<T> where T : BaseEntity
 
     public async Task<T> GetById(int id)
     {
-        return await Entity.FindAsync(id);
+        return await Entity.FirstOrDefaultAsync( x=>x.Id == id);
     }
-
+  
     public async Task<T> GetFirstByExpiression(Expression<Func<T, bool>> expression)
     {
         return await Entity.FirstOrDefaultAsync(expression);
