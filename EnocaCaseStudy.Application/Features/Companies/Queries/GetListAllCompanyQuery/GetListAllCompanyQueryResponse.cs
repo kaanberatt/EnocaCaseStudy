@@ -3,4 +3,4 @@ using MediatR;
 
 namespace EnocaCaseStudy.Application.Features.Companies.Queries.GetListAllCompanyQuery;
 
-public record GetListAllCompanyQueryResponse(IQueryable<Company> companies);
+public record GetListAllCompanyQueryResponse(List<Company> companies);

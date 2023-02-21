@@ -1,4 +1,4 @@
-﻿using EnocaCaseStudy.Domain.Repositories;
+﻿using EnocaCaseStudy.Application.Repositories;
 using EnocaCaseStudy.Domain.Utilities;
 using EnocaCaseStudy.Persistance.Context;
 using Microsoft.EntityFrameworkCore;

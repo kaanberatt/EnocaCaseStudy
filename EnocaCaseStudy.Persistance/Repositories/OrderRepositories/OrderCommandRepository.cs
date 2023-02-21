@@ -1,5 +1,5 @@
 ﻿using EnocaCaseStudy.Domain.Entities;
-using EnocaCaseStudy.Domain.Repositories.OrderRepositories;
+using EnocaCaseStudy.Application.Repositories.OrderRepositories;
 using EnocaCaseStudy.Persistance.Context;
 
 namespace EnocaCaseStudy.Persistance.Repositories.OrderRepositories;

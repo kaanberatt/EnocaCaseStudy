@@ -1,6 +1,6 @@
 ﻿using EnocaCaseStudy.Domain.Entities;
 
-namespace EnocaCaseStudy.Domain.Repositories.OrderRepositories;
+namespace EnocaCaseStudy.Application.Repositories.OrderRepositories;
 
 public interface IOrderQueryRepository : IQueryRepository<Order>
 {

@@ -1,4 +1,4 @@
-﻿namespace EnocaCaseStudy.Domain;
+﻿namespace EnocaCaseStudy.Application;
 
 public interface IUnitOfWork
 {

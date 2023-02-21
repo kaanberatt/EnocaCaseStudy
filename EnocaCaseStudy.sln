@@ -3,19 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnocaCaseStudy.WebApi", "EnocaCaseStudy\EnocaCaseStudy.WebApi.csproj", "{9BC98ABA-552E-4009-9EE1-F6805B48179B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnocaCaseStudy.WebApi", "EnocaCaseStudy\EnocaCaseStudy.WebApi.csproj", "{9BC98ABA-552E-4009-9EE1-F6805B48179B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{9DAA498F-E1A2-44D9-92AB-FBB432AA4DB8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External", "External", "{9B33842B-910D-4044-9CCF-A192B4BB34BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnocaCaseStudy.Application", "EnocaCaseStudy.Application\EnocaCaseStudy.Application.csproj", "{73093AA4-32DB-499B-9D6C-7BF6962D8C36}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnocaCaseStudy.Application", "EnocaCaseStudy.Application\EnocaCaseStudy.Application.csproj", "{73093AA4-32DB-499B-9D6C-7BF6962D8C36}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnocaCaseStudy.Domain", "EnocaCaseStudy.Domain\EnocaCaseStudy.Domain.csproj", "{ED225220-D5D7-41F6-9BBD-385DA370FCE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnocaCaseStudy.Domain", "EnocaCaseStudy.Domain\EnocaCaseStudy.Domain.csproj", "{ED225220-D5D7-41F6-9BBD-385DA370FCE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnocaCaseStudy.Infrastructure", "EnocaCaseStudy.Infrastructure\EnocaCaseStudy.Infrastructure.csproj", "{D1DBD6E9-B32F-43BF-95C8-F3FF5F161CED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnocaCaseStudy.Infrastructure", "EnocaCaseStudy.Infrastructure\EnocaCaseStudy.Infrastructure.csproj", "{D1DBD6E9-B32F-43BF-95C8-F3FF5F161CED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnocaCaseStudy.Persistance", "EnocaCaseStudy.Persistance\EnocaCaseStudy.Persistance.csproj", "{6233794E-BB92-4A18-8B4D-35451A4F62D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnocaCaseStudy.Persistance", "EnocaCaseStudy.Persistance\EnocaCaseStudy.Persistance.csproj", "{6233794E-BB92-4A18-8B4D-35451A4F62D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

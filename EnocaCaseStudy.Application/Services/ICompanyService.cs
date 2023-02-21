@@ -8,6 +8,6 @@ public interface ICompanyService
 {
     Task AddAsync(CreateCompanyCommand request);
     Task UpdateAsync(UpdateCompanyCommand request);
-    IQueryable<Company> GetListAll();
+    List<Company> GetListAll();
     Task<Company> GetByIdAsync(int id);
 }

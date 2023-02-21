@@ -1,8 +1,8 @@
 ﻿using EnocaCaseStudy.Application.Features.Orders.Commands.CreateOrder;
 using EnocaCaseStudy.Application.Services;
-using EnocaCaseStudy.Domain;
+using EnocaCaseStudy.Application;
 using EnocaCaseStudy.Domain.Entities;
-using EnocaCaseStudy.Domain.Repositories.OrderRepositories;
+using EnocaCaseStudy.Application.Repositories.OrderRepositories;
 
 namespace EnocaCaseStudy.Persistance.Services;
 public class OrderService : IOrderService

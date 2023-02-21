@@ -1,7 +1,7 @@
 ﻿using EnocaCaseStudy.Domain.Utilities;
 using System.Linq.Expressions;
 
-namespace EnocaCaseStudy.Domain.Repositories;
+namespace EnocaCaseStudy.Application.Repositories;
 
 public interface IQueryRepository<T> : IRepository<T>  where T : BaseEntity
 {

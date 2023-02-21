@@ -5,11 +5,10 @@ using EnocaCaseStudy.Application.Features.Companies.Queries.GetListAllCompanyQue
 using EnocaCaseStudy.Application.Features.Orders.Commands.CreateOrder;
 using EnocaCaseStudy.Application.Features.Products.Commands.CreateProduct;
 using EnocaCaseStudy.Application.Services;
-using EnocaCaseStudy.Domain;
-using EnocaCaseStudy.Domain.Entities;
-using EnocaCaseStudy.Domain.Repositories.CompanyRepositories;
-using EnocaCaseStudy.Domain.Repositories.OrderRepositories;
-using EnocaCaseStudy.Domain.Repositories.ProductRepositories;
+using EnocaCaseStudy.Application;
+using EnocaCaseStudy.Application.Repositories.CompanyRepositories;
+using EnocaCaseStudy.Application.Repositories.OrderRepositories;
+using EnocaCaseStudy.Application.Repositories.ProductRepositories;
 using EnocaCaseStudy.Persistance.Repositories.CompanyRepositories;
 using EnocaCaseStudy.Persistance.Repositories.OrderRepositories;
 using EnocaCaseStudy.Persistance.Repositories.ProductRepositories;

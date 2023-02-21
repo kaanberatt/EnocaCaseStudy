@@ -1,5 +1,5 @@
 ﻿using EnocaCaseStudy.Application.Services;
-using EnocaCaseStudy.Domain.Repositories.CompanyRepositories;
+using EnocaCaseStudy.Application.Repositories.CompanyRepositories;
 using MediatR;
 
 namespace EnocaCaseStudy.Application.Features.Orders.Commands.CreateOrder;

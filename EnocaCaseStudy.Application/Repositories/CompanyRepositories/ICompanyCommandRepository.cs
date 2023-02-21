@@ -1,6 +1,6 @@
 ﻿using EnocaCaseStudy.Domain.Entities;
 
-namespace EnocaCaseStudy.Domain.Repositories.CompanyRepositories;
+namespace EnocaCaseStudy.Application.Repositories.CompanyRepositories;
 
 public interface ICompanyCommandRepository : ICommandRepository<Company> 
 {

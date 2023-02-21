@@ -1,6 +1,7 @@
-﻿using EnocaCaseStudy.Domain.Utilities;
+﻿
+using EnocaCaseStudy.Domain.Utilities;
 
-namespace EnocaCaseStudy.Domain.Repositories;
+namespace EnocaCaseStudy.Application.Repositories;
 
 public interface ICommandRepository<T> : IRepository<T> where T : BaseEntity
 {

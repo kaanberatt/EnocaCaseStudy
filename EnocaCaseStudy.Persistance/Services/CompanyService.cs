@@ -1,9 +1,9 @@
 ﻿using EnocaCaseStudy.Application.Features.Companies.Commands.CreateCompany;
 using EnocaCaseStudy.Application.Features.Companies.Commands.UpdateCompany;
 using EnocaCaseStudy.Application.Services;
-using EnocaCaseStudy.Domain;
 using EnocaCaseStudy.Domain.Entities;
-using EnocaCaseStudy.Domain.Repositories.CompanyRepositories;
+using EnocaCaseStudy.Application.Repositories.CompanyRepositories;
+using EnocaCaseStudy.Application;
 
 namespace EnocaCaseStudy.Persistance.Services;
 public class CompanyService : ICompanyService
@@ -51,9 +51,9 @@ public class CompanyService : ICompanyService
         }
 
     }
-    public IQueryable<Company> GetListAll()
+    public List<Company> GetListAll()
     {
-        return _companyQueryRepository.GetAll();
+        return _companyQueryRepository.GetAll().ToList();
     }
 
     public async Task<Company> GetByIdAsync(int id)

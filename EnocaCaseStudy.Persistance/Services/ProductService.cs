@@ -1,8 +1,8 @@
 ﻿using EnocaCaseStudy.Application.Features.Products.Commands.CreateProduct;
 using EnocaCaseStudy.Application.Services;
-using EnocaCaseStudy.Domain;
+using EnocaCaseStudy.Application;
 using EnocaCaseStudy.Domain.Entities;
-using EnocaCaseStudy.Domain.Repositories.ProductRepositories;
+using EnocaCaseStudy.Application.Repositories.ProductRepositories;
 
 namespace EnocaCaseStudy.Persistance.Services;
 

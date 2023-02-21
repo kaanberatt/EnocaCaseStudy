@@ -2,7 +2,6 @@
 using EnocaCaseStudy.Application.Features.Companies.Commands.UpdateCompany;
 using EnocaCaseStudy.Application.Features.Companies.Queries.GetListAllCompanyQuery;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EnocaCaseStudy.WebApi.Controllers;
@@ -21,7 +20,7 @@ public class CompaniesController : ControllerBase
     public async Task<IActionResult> AddCompany(CreateCompanyCommand request)
     {
         var result = await _mediator.Send(request);
-        return Ok(result.Message);
+        return Ok(result);
     }
     [HttpPost]
     public IActionResult UpdateCompany(UpdateCompanyCommand request)
@@ -36,6 +35,5 @@ public class CompaniesController : ControllerBase
         var result = _mediator.Send(request);
         return Ok(result);
     }
-    
 
 }

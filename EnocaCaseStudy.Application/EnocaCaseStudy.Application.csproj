@@ -7,15 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Features\Orders\Queries\**" />
+    <EmbeddedResource Remove="Features\Orders\Queries\**" />
+    <None Remove="Features\Orders\Queries\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MediatR" Version="11.1.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\EnocaCaseStudy.Domain\EnocaCaseStudy.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Features\Orders\Queries\" />
   </ItemGroup>
 
 </Project>

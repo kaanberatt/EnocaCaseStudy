@@ -1,4 +1,4 @@
-﻿using EnocaCaseStudy.Domain;
+﻿using EnocaCaseStudy.Application;
 using EnocaCaseStudy.Persistance.Context;
 
 namespace EnocaCaseStudy.Persistance;
