@@ -2,6 +2,6 @@
 
 namespace EnocaCaseStudy.Application.Features.Companies.Queries.GetListAllCompanyQuery;
 
-public record GetListAllCompanyQuery : IRequest<GetListAllCompanyQueryResponse>
+public class GetListAllCompanyQuery : IRequest<GetListAllCompanyQueryResponse>
 {
 }

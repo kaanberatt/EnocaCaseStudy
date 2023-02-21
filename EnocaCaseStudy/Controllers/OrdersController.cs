@@ -19,6 +19,6 @@ public class OrdersController : ControllerBase
     public async Task<IActionResult> CreateOrder(CreateOrderCommand request)
     {
         var result = await _mediator.Send(request);
-        return Ok();
+        return Ok(result);
     }
 }

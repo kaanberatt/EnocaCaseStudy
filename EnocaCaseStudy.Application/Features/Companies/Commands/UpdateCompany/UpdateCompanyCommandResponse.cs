@@ -1,3 +1,9 @@
-﻿namespace EnocaCaseStudy.Application.Features.Companies.Commands.UpdateCompany;
+﻿using EnocaCaseStudy.Domain.Entities;
 
-public record UpdateCompanyCommandResponse(string Message = "Company is updated");
+namespace EnocaCaseStudy.Application.Features.Companies.Commands.UpdateCompany;
+
+public class UpdateCompanyCommandResponse
+{
+    public string Message { get; set; }
+    public bool isSuccess { get; set; }
+}

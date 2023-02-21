@@ -1,3 +1,7 @@
 ﻿namespace EnocaCaseStudy.Application.Features.Products.Commands.CreateProduct;
 
-public record CreateProductCommandResponse(string Message = "Products are created");
+public class CreateProductCommandResponse
+{
+    public string Message { get; set; }
+    public bool isSuccess { get; set; }
+}

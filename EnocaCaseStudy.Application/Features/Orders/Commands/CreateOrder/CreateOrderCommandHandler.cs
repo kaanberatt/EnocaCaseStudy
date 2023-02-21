@@ -28,15 +28,19 @@ public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, Cre
                 if (startDate < NowTime && finishDate > NowTime)
                 {
                     await _orderService.AddAsync(request);
-                    return new CreateOrderCommandResponse();
+                    return new CreateOrderCommandResponse()
+                    {
+                        isSuccess = true,
+                        Message = "Order is completed"
+                    };
                 }
                 else
-                    throw new Exception("Company closed");
+                    throw new Exception("The company does not accept orders.");
             }
             else
-                throw new Exception("Company is not confirm");  
+                throw new Exception("The Company is not confirm.");  
         }
         else
-            throw new Exception("Company is not found");
+            throw new Exception("Company is not found.");
     }
 }

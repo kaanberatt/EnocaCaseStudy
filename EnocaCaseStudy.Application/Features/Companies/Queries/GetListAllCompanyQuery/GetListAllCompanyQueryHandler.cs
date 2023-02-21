@@ -15,7 +15,12 @@ public class GetListAllQueryHandler : IRequestHandler<GetListAllCompanyQuery, Ge
     public async Task<GetListAllCompanyQueryResponse> Handle(GetListAllCompanyQuery request, CancellationToken cancellationToken)
     {
 
-        var result = new GetListAllCompanyQueryResponse(_companyService.GetListAll());
-        return result;
+        var companies = _companyService.GetListAll();
+        return new()
+        {
+            companies = companies,
+            isSuccess = true,   
+            Message = "Listed companies"
+        };
     }
 }

@@ -20,36 +20,50 @@ public class CompanyService : ICompanyService
 
     public async Task AddAsync(CreateCompanyCommand request)
     {
-        var company = new Company()
+        try
         {
-            CompanyName = request.CompanyName,
-            OrderAllowStartTime =  request.StartDate,
-            OrderAllowFinishTime = request.FinishDate,
-            isConfirm = true,
-            CreatedDate = DateTime.Now
-        };
-        await _companyCommandRepository.AddAsync(company);
-        await _unitOfWork.SaveChangesAsync();
+            var company = new Company()
+            {
+                CompanyName = request.CompanyName,
+                OrderAllowStartTime = request.StartDate,
+                OrderAllowFinishTime = request.FinishDate,
+                isConfirm = request.IsConfirm,
+                CreatedDate = DateTime.Now
+            };
+            await _companyCommandRepository.AddAsync(company);
+            await _unitOfWork.SaveChangesAsync();
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+       
     }
 
     public async Task UpdateAsync(UpdateCompanyCommand request)
     {
-        var company = await _companyQueryRepository.GetById(request.Id);
-        if (company != null)
+        try
         {
-            company.isConfirm = request.isConfirm; 
-            company.OrderAllowStartTime = request.StartDate;
-            company.OrderAllowFinishTime= request.FinishDate;
-            company.UpdatedDate = DateTime.Now;
+            var company = await _companyQueryRepository.GetById(request.Id);
+            if (company != null)
+            {
+                company.isConfirm = request.isConfirm;
+                company.OrderAllowStartTime = request.StartDate;
+                company.OrderAllowFinishTime = request.FinishDate;
+                company.UpdatedDate = DateTime.Now;
 
-            _companyCommandRepository.Update(company);
-            await _unitOfWork.SaveChangesAsync();
+                _companyCommandRepository.Update(company);
+                await _unitOfWork.SaveChangesAsync();
+            }
+            else
+            {
+                throw new Exception("Company is not found");
+            }
         }
-        else
+        catch (Exception ex)
         {
-            throw new Exception("Company is not found");
+            throw new Exception(ex.Message);
         }
-
     }
     public List<Company> GetListAll()
     {

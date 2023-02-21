@@ -17,7 +17,11 @@ namespace EnocaCaseStudy.Application.Features.Companies.Commands.CreateCompany
         {
             await _companyService.AddAsync(request);
             
-            return new CreateCompanyCommandResponse();
+            return new CreateCompanyCommandResponse()
+            {
+                message = "Company is created",
+                isSuccess= true
+            };
         }
     }
 }

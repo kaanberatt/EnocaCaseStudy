@@ -1,11 +1,7 @@
 ﻿namespace EnocaCaseStudy.Application.Features.Orders.Commands.CreateOrder;
 
-public record CreateOrderCommandResponse
+public class  CreateOrderCommandResponse
 {
     public string Message { get; set; }
-
-    public CreateOrderCommandResponse()
-	{
-		string Message = "Order is completed";
-	}
+    public bool isSuccess { get; set; }
 }

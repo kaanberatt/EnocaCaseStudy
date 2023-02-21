@@ -2,4 +2,11 @@
 
 namespace EnocaCaseStudy.Application.Features.Products.Commands.CreateProduct;
 
-public record CreateProductCommand(int CompanyId, string ProductName, decimal Stock, decimal Price) : IRequest<CreateProductCommandResponse>;
+public class CreateProductCommand: IRequest<CreateProductCommandResponse>
+{
+        public int CompanyId { get; set; }
+        public string ProductName { get; set; }
+        public decimal Stock { get; set; }
+        public decimal Price { get; set; }
+
+}

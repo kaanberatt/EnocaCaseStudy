@@ -17,15 +17,23 @@ public class OrderService : IOrderService
 
     public async Task AddAsync(CreateOrderCommand request)
     {
-        var order = new Order()
+        try
         {
-            CompanyId = request.CompanyId,
-            ProductId = request.ProductId,
-            CustomerName = request.CustomerName,
-            CreatedDate = DateTime.Now,
-            OrderDate = DateTime.Now
-        };
-        await _ordercommandRepository.AddAsync(order);
-        await _unitOfWork.SaveChangesAsync();
+            var order = new Order()
+            {
+                CompanyId = request.CompanyId,
+                ProductId = request.ProductId,
+                CustomerName = request.CustomerName,
+                CreatedDate = DateTime.Now,
+                OrderDate = DateTime.Now
+            };
+            await _ordercommandRepository.AddAsync(order);
+            await _unitOfWork.SaveChangesAsync();
+        }
+        catch (Exception ex)
+        {
+            throw new Exception(ex.Message);
+        }
+        
     }
 }
