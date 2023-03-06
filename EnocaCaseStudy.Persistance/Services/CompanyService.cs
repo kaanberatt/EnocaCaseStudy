@@ -4,6 +4,7 @@ using EnocaCaseStudy.Application.Services;
 using EnocaCaseStudy.Domain.Entities;
 using EnocaCaseStudy.Application.Repositories.CompanyRepositories;
 using EnocaCaseStudy.Application;
+using System.Net;
 
 namespace EnocaCaseStudy.Persistance.Services;
 public class CompanyService : ICompanyService
@@ -18,7 +19,7 @@ public class CompanyService : ICompanyService
         _companyQueryRepository = companyQueryRepository;
     }
 
-    public async Task AddAsync(CreateCompanyCommand request)
+    public async Task<CreateCompanyCommandResponse> AddAsync(CreateCompanyCommand request)
     {
         try
         {
@@ -32,15 +33,35 @@ public class CompanyService : ICompanyService
             };
             await _companyCommandRepository.AddAsync(company);
             await _unitOfWork.SaveChangesAsync();
+            return new CreateCompanyCommandResponse()
+            {
+                isSuccess = true,
+                message = "Company is created"
+            };
         }
         catch (Exception ex)
         {
-            throw new Exception(ex.Message);
+            return new CreateCompanyCommandResponse()
+            {
+                isSuccess = false,
+                message = ex.Message,
+            };
         }
        
     }
 
-    public async Task UpdateAsync(UpdateCompanyCommand request)
+
+    public List<Company> GetListAll()
+    {
+        return _companyQueryRepository.GetAll().ToList();
+    }
+
+    public async Task<Company> GetByIdAsync(int id)
+    {
+       return await _companyQueryRepository.GetById(id);
+    }
+
+    public async Task<UpdateCompanyCommandResponse> UpdateAsync(UpdateCompanyCommand request)
     {
         try
         {
@@ -54,24 +75,28 @@ public class CompanyService : ICompanyService
 
                 _companyCommandRepository.Update(company);
                 await _unitOfWork.SaveChangesAsync();
+                return new UpdateCompanyCommandResponse()
+                {
+                    isSuccess = true,
+                    Message = "Updated"
+                };
             }
             else
             {
-                throw new Exception("Company is not found");
+                return new UpdateCompanyCommandResponse()
+                {
+                    isSuccess = false,
+                    Message = "compdany is not found"
+                };
             }
         }
         catch (Exception ex)
         {
-            throw new Exception(ex.Message);
+            return new UpdateCompanyCommandResponse()
+            {
+                isSuccess = false,
+                Message = ex.Message
+            };
         }
-    }
-    public List<Company> GetListAll()
-    {
-        return _companyQueryRepository.GetAll().ToList();
-    }
-
-    public async Task<Company> GetByIdAsync(int id)
-    {
-       return await _companyQueryRepository.GetById(id);
     }
 }

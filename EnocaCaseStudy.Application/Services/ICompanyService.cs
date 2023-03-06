@@ -6,8 +6,8 @@ namespace EnocaCaseStudy.Application.Services;
 
 public interface ICompanyService
 {
-    Task AddAsync(CreateCompanyCommand request);
-    Task UpdateAsync(UpdateCompanyCommand request);
+    Task<CreateCompanyCommandResponse> AddAsync(CreateCompanyCommand request);
+    Task<UpdateCompanyCommandResponse> UpdateAsync(UpdateCompanyCommand request);
     List<Company> GetListAll();
     Task<Company> GetByIdAsync(int id);
 }

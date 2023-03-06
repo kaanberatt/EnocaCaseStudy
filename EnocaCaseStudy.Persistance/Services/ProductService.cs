@@ -19,7 +19,7 @@ public class ProductService : IProductService
         _companyService = companyService;
     }
 
-    public async Task AddAsync(CreateProductCommand request)
+    public async Task<CreateProductCommandResponse> AddAsync(CreateProductCommand request)
     {
         try
         {
@@ -36,13 +36,29 @@ public class ProductService : IProductService
                 };
                 await _productCommandRepository.AddAsync(product);
                 await _unitOfWork.SaveChangesAsync();
+                return new CreateProductCommandResponse()
+                {
+                    isSuccess = true,
+                    Message = "Added products"
+                };
             }
             else
-                throw new Exception("Company is not found.");
+            {
+                return new CreateProductCommandResponse()
+                {
+                    isSuccess = false,
+                    Message = "Company is not found"
+                };
+            }
+                
         }
         catch (Exception ex)
         {
-            throw new Exception(ex.Message);
+            return new CreateProductCommandResponse()
+            {
+                isSuccess = false,
+                Message = ex.Message
+            };
         }
     }
 }

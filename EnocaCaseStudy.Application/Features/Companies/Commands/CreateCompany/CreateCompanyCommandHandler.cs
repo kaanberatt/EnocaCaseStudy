@@ -15,13 +15,10 @@ namespace EnocaCaseStudy.Application.Features.Companies.Commands.CreateCompany
 
         public async Task<CreateCompanyCommandResponse> Handle(CreateCompanyCommand request, CancellationToken cancellationToken)
         {
-            await _companyService.AddAsync(request);
-            
-            return new CreateCompanyCommandResponse()
-            {
-                message = "Company is created",
-                isSuccess= true
-            };
+
+            var result = await _companyService.AddAsync(request);
+
+            return result;
         }
     }
 }

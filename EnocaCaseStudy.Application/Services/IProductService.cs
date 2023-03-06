@@ -4,6 +4,6 @@ namespace EnocaCaseStudy.Application.Services
 {
     public interface IProductService 
     {
-        Task AddAsync(CreateProductCommand request);
+        Task<CreateProductCommandResponse> AddAsync(CreateProductCommand request);
     }
 }

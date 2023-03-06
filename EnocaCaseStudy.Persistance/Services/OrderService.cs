@@ -15,7 +15,7 @@ public class OrderService : IOrderService
         _unitOfWork = unitOfWork;
     }
 
-    public async Task AddAsync(CreateOrderCommand request)
+    public async Task<CreateOrderCommandResponse> AddAsync(CreateOrderCommand request)
     {
         try
         {
@@ -29,10 +29,19 @@ public class OrderService : IOrderService
             };
             await _ordercommandRepository.AddAsync(order);
             await _unitOfWork.SaveChangesAsync();
+            return new CreateOrderCommandResponse()
+            {
+                isSuccess = true,
+                Message = "Order is completed"
+            };
         }
         catch (Exception ex)
         {
-            throw new Exception(ex.Message);
+            return new CreateOrderCommandResponse()
+            {
+                isSuccess = false,
+                Message = ex.Message,
+            };
         }
         
     }

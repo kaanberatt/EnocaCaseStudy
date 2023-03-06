@@ -13,11 +13,7 @@ public class UpdateCompanyCommandHandler : IRequestHandler<UpdateCompanyCommand,
 
     public async Task<UpdateCompanyCommandResponse> Handle(UpdateCompanyCommand request, CancellationToken cancellationToken)
     {
-        await _companyService.UpdateAsync(request);
-        return new()
-        {
-            isSuccess = true,
-            Message = "Updated Company"
-        };
+        var result = await _companyService.UpdateAsync(request);
+        return result;
     }
 }

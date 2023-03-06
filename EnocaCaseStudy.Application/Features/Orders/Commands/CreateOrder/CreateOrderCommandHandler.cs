@@ -27,20 +27,34 @@ public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, Cre
                 TimeSpan NowTime = DateTime.Now.TimeOfDay;
                 if (startDate < NowTime && finishDate > NowTime)
                 {
-                    await _orderService.AddAsync(request);
-                    return new CreateOrderCommandResponse()
-                    {
-                        isSuccess = true,
-                        Message = "Order is completed"
-                    };
+                    var result = await _orderService.AddAsync(request);
+                    return result;
                 }
                 else
-                    throw new Exception("The company does not accept orders.");
+                {
+                    return new CreateOrderCommandResponse()
+                    {
+                        isSuccess = false,
+                        Message = "The company does not accept orders."
+                    };
+                }
             }
             else
-                throw new Exception("The Company is not confirm.");  
+            {
+                return new CreateOrderCommandResponse()
+                {
+                    isSuccess = false,
+                    Message = "The Company is not confirm."
+                };
+            }
         }
         else
-            throw new Exception("Company is not found.");
+        {
+            return new CreateOrderCommandResponse()
+            {
+                isSuccess = false,
+                Message = "Company is not found."
+            };
+        }
     }
 }

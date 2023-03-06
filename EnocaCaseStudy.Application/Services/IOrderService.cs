@@ -4,5 +4,5 @@ namespace EnocaCaseStudy.Application.Services;
 
 public interface IOrderService
 {
-    Task AddAsync(CreateOrderCommand request);
+    Task<CreateOrderCommandResponse> AddAsync(CreateOrderCommand request);
 }
